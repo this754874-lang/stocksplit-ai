@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#08090f" />
+
+  <title>StockSplit AI</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <!-- TOP HEADER -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">S</div>
+        <div>
+          <h1>StockSplit <span>AI</span></h1>
+          <p>INTELLIGENT ON-CHAIN CREDIT</p>
+        </div>
+      </div>
+
+      <button class="network-pill" id="networkBtn">
+        <span class="status-dot"></span>
+        <span id="networkName">DEVNET</span>
+      </button>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-glow"></div>
+
+      <p class="eyebrow">TOKENIZED ASSET CREDIT</p>
+
+      <h2>
+        Your assets.<br />
+        <span>Your liquidity.</span>
+      </h2>
+
+      <p class="hero-text">
+        Deposit supported assets, unlock on-chain borrowing power,
+        and manage your position with AI-powered risk intelligence.
+      </p>
+
+      <button class="connect-main" id="connectWalletBtn">
+        <span class="wallet-icon">◈</span>
+        <span id="connectText">Connect Wallet</span>
+        <span class="arrow">→</span>
+      </button>
+
+    </section>
+
+
+    <!-- POSITION -->
+    <section class="section">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR POSITION</p>
+          <h3>On-chain overview</h3>
+        </div>
+
+        <span class="live-badge" id="liveBadge">
+          <span></span> LIVE
+        </span>
+      </div>
+
+
+      <div class="position-grid">
+
+        <div class="metric-card">
+          <div class="metric-top">
+            <span>COLLATERAL</span>
+            <span class="metric-icon">⬡</span>
+          </div>
+
+          <strong id="collateralValue">--</strong>
+
+          <small id="collateralSub">
+            Connect wallet
+          </small>
+        </div>
+
+
+        <div class="metric-card">
+          <div class="metric-top">
+            <span>BORROWED</span>
+            <span class="metric-icon">◈</span>
+          </div>
+
+          <strong id="borrowedValue">--</strong>
+
+          <small id="borrowedSub">
+            No position
+          </small>
+        </div>
+
+
+        <div class="metric-card wide-card">
+          <div class="metric-top">
+            <span>BORROWING POWER</span>
+            <span class="metric-icon">↗</span>
+          </div>
+
+          <strong id="borrowPower">--</strong>
+
+          <small>
+            Calculated from actual collateral
+          </small>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUICK ACTIONS -->
+    <section class="section">
+
+      <p class="eyebrow">ACTIONS</p>
+
+      <div class="action-grid">
+
+        <button class="action-card" id="depositBtn">
+          <div class="action-icon">↓</div>
+          <div>
+            <strong>Deposit</strong>
+            <span>Add collateral</span>
+          </div>
+        </button>
+
+
+        <button class="action-card" id="borrowBtn">
+          <div class="action-icon">↑</div>
+          <div>
+            <strong>Borrow</strong>
+            <span>Unlock liquidity</span>
+          </div>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- AI RISK -->
+    <section class="section">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">AI INTELLIGENCE</p>
+          <h3>Risk Command Center</h3>
+        </div>
+
+        <div class="ai-chip">
+          <span></span>
+          AI ONLINE
+        </div>
+      </div>
+
+
+      <div class="risk-card">
+
+        <div class="risk-header">
+
+          <div class="risk-ring-wrap">
+
+            <div class="risk-ring" id="riskRing">
+              <div class="risk-number" id="riskScore">
+                --
+              </div>
+            </div>
+
+            <span id="riskLabel">
+              WAITING FOR DATA
+            </span>
+
+          </div>
+
+
+          <div class="risk-info">
+
+            <h4 id="riskTitle">
+              No position detected
+            </h4>
+
+            <p id="riskDescription">
+              Connect your wallet and create a real on-chain position
+              to unlock personalized risk analysis.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="risk-divider"></div>
+
+
+        <div class="risk-actions">
+
+          <button class="ai-action" id="analyzeBtn">
+            <span>✦</span>
+            Analyze Risk
+          </button>
+
+          <button class="ai-action" id="simulateBtn">
+            <span>◌</span>
+            Simulate
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ACTIVITY -->
+    <section class="section activity-section">
+
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">BLOCKCHAIN</p>
+          <h3>Recent Activity</h3>
+        </div>
+      </div>
+
+
+      <div class="activity-empty" id="activityList">
+
+        <div class="activity-icon">⌁</div>
+
+        <strong>No transactions yet</strong>
+
+        <p>
+          Real Solana transactions will appear here
+          after confirmation.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOTTOM NAV -->
+    <nav class="bottom-nav">
+
+      <button class="nav-item active" data-page="home">
+        <span>⌂</span>
+        <small>Home</small>
+      </button>
+
+      <button class="nav-item" data-page="assets">
+        <span>◫</span>
+        <small>Assets</small>
+      </button>
+
+      <button class="nav-item ai-nav" data-page="ai">
+        <span>✦</span>
+        <small>AI Risk</small>
+      </button>
+
+      <button class="nav-item" data-page="wallet">
+        <span>◈</span>
+        <small>Wallet</small>
+      </button>
+
+    </nav>
+
+  </div>
+
+
+  <!-- WALLET MODAL -->
+  <div class="modal hidden" id="walletModal">
+
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="wallet-modal-content">
+
+      <div class="modal-handle"></div>
+
+      <div class="modal-header">
+
+        <div>
+          <p class="eyebrow">SOLANA</p>
+          <h3>Connect Wallet</h3>
+        </div>
+
+        <button id="closeModal">×</button>
+
+      </div>
+
+
+      <p class="modal-description">
+        Choose an installed wallet. Balances and transactions
+        are read directly from the Solana network.
+      </p>
+
+
+      <div class="wallet-list" id="walletList">
+
+        <button class="wallet-option" data-wallet="phantom">
+          <div class="wallet-logo phantom">P</div>
+
+          <div>
+            <strong>Phantom</strong>
+            <span>Solana Wallet</span>
+          </div>
+
+          <b>→</b>
+        </button>
+
+
+        <button class="wallet-option" data-wallet="solflare">
+          <div class="wallet-logo solflare">S</div>
+
+          <div>
+            <strong>Solflare</strong>
+            <span>Solana Wallet</span>
+          </div>
+
+          <b>→</b>
+        </button>
+
+
+        <button class="wallet-option" data-wallet="backpack">
+          <div class="wallet-logo backpack">B</div>
+
+          <div>
+            <strong>Backpack</strong>
+            <span>Solana Wallet</span>
+          </div>
+
+          <b>→</b>
+        </button>
+
+      </div>
+
+
+      <div class="wallet-footer">
+        Wallet Standard & Mobile Wallet Adapter support
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div class="toast hidden" id="toast"></div>
+
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
